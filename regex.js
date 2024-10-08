@@ -12,7 +12,20 @@ const validAlphabeticString = /^[A-Za-z]+$/;
 
 
 // Use the test method to check whether something matches the rules. 
+console.log(`456 is a whole number: ${validWholeNumberRegEx.test(456)}`);
+console.log(`456.5 is a whole number: ${validWholeNumberRegEx.test(456.5)}`);
 console.log(validWholeNumberRegEx.test(456))
+console.log(validWholeNumberRegEx.test("4"))
+console.log(validWholeNumberRegEx.test(4.4))
+console.log(validWholeNumberRegEx.test("error"))
+
+
+/*console.log(`45.46 is floating point number with two dps: ${validFloatingPoint2DP.test(45.46)}`);
+console.log(`45.462 is floating point number with two dps: ${validFloatingPoint2DP.test(45.462)}`);
+
+
+console.log(`45.46 is an alphabetic string: ${validAlphabeticString.test(45.46)}`);
+console.log(`anand is an alphabetic string: ${validAlphabeticString.test("anand")}`);*/
 
 
 
@@ -33,18 +46,30 @@ console.log(validWholeNumberRegEx.test(456))
 
 // Example code from the lesson slides:
 
-// function validInput(input){
-//     const AtoZAndSpaceRegex = /^[A-Za-z]+$/;
-//     return AtoZAndSpaceRegex.test(input)
-// }
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-// while (true) {
-//     let userInput = readlineSync.question("Please enter alpha characters only: ");
-//     if (validInput(userInput)) {
-//         console.log("Thank you. Please continue.");
-//         break;
-//     }
-//     else {
-//         console.log("Incorrect input.");
-//     }
-// } 
+function emailValidity(email) {
+  return emailRegex.test(email);
+}
+
+userEmail = "steve@bob.com";
+console.log(`steve@bob.com is a valid email: ${emailValidity(userEmail)}`);
+console.log(`s@b.co is a valid email: ${emailValidity("s@b.co")}`);
+console.log(`s@b.c is a valid email: ${emailValidity("s@b.c")}`);
+
+
+function validInput(input){
+    const AtoZAndSpaceRegex = /^[A-Za-z]+$/;
+    return AtoZAndSpaceRegex.test(input)
+}
+
+while (true) {
+    let userInput = readlineSync.question("Please enter alpha characters only: ");
+    if (validInput(userInput)) {
+       console.log("Thank you. Please continue.");
+         break;
+    }
+    else {
+       console.log("Incorrect input.");
+   }
+}
